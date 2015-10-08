@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 
-# First, make sure the file 
+# First, make sure the file has no interchain disulfides etc. That is step 0.
+#
 # This is the first step in processing a PDB: making individual model files that
 # you subsequently will relax (prepare for further analysis). The reason this is
 # necessary is because NMR structures contain multiple starting points, and we

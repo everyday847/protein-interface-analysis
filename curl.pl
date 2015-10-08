@@ -12,6 +12,8 @@ if ( not defined $pdb_list or not defined $pdb_dir ) {
 	print "Run this script by: perl curl.pl [pdb_list] [pdb_directory] \n\n";
 	print "\tpdb_list: a text file containing a list of PDB codes (xxxx) to be added ton\n";
 	print "\tthe directory pdb_dir.";
+	exit;
+}
 
 open IN, "<$pdb_list";
 my @pdblines = <IN>;
