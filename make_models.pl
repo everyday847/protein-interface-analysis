@@ -1,5 +1,6 @@
 #!/usr/bin/perl
 
+# First, make sure the file 
 # This is the first step in processing a PDB: making individual model files that
 # you subsequently will relax (prepare for further analysis). The reason this is
 # necessary is because NMR structures contain multiple starting points, and we
