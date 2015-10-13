@@ -7,11 +7,13 @@
 use strict;
 use warnings;
 
+my ( $pdb_list, $pdb_dir ) = @ARGV;
+
 if ( not defined $pdb_list or not defined $pdb_dir ) {
 	print "\n";
 	print "Run this script by: perl curl.pl [pdb_list] [pdb_directory] \n\n";
 	print "\tpdb_list: a text file containing a list of PDB codes (xxxx) to be added ton\n";
-	print "\tthe directory pdb_dir.";
+	print "\tthe directory pdb_dir.\n\n\n";
 	exit;
 }
 
@@ -36,7 +38,7 @@ foreach my $pdb (@pdblines) {
 	}
 
 	# Try to download biological assembly (.pdb1 extension on rcsb website)
-	system("curl -o $pdb_dir/$pdb.pdb \"http://www.rcsb.org/pdb/files/$pdb.pdb1\" ";
+	system("curl -o $pdb_dir/$pdb.pdb \"http://www.rcsb.org/pdb/files/$pdb.pdb1\" " );
 
 	# Check if that failed--if so, only asymmetric unit is available.
 	open PDB, "<$pdb_dir/$pdb.pdb";
