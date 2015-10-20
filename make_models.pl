@@ -31,7 +31,7 @@ if ( not defined $pdb_list or not defined $pdb_dir or not defined $relax_dir ) {
 	exit;
 }
 
-open LIST, "<$pdb_list"
+open LIST, "<$pdb_list";
 
 while (<LIST>) {
 	my $pdb = $_;
