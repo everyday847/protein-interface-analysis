@@ -39,7 +39,7 @@ my $i = 1;
 foreach my $file (@files) {
 	chomp $file;
 	my $pdbcode = substr $file, 0, 4;
-	open PDB, "pdb_files_new/$pdbcode\_models/$file" or next;
+	open PDB, "$model_dir/$pdbcode\_models/$file" or next;
 	
 	my $last_rn = "XXXX";
 	my $bb_num = 0;
@@ -47,8 +47,8 @@ foreach my $file (@files) {
 		my $line = $_;
 		chomp $line;
 		if (/^ATOM/) {
-			if ((substr ($line, 22, 4)) ne $last_rn and $last_rn ne "XXXX") {
-				if ($bb_num < 4) {
+			if ((substr ($line, 22, 4)) ne $last_rn) {
+				if ($bb_num < 4 and $last_rn ne "XXXX") {
 					print "$file $last_rn\n";
 				}
 				$last_rn = substr ($line, 22, 4);
