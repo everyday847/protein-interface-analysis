@@ -61,6 +61,11 @@ foreach my $file (@files) {
 		}
 										
 	}
+	# Final rn
+	if ($bb_num < 4 and $last_rn ne "XXXX") {
+		print "$file $last_rn\n";
+	}
+	
 	close PDB;
 }
 
