@@ -53,7 +53,7 @@ cd /scratch/amw579/new_HIPP/\n\n";
 		
 		# These flags haven't been optimized--it's possible that -ex3 and -ex4 are 
 		# critical or that Cartesian minimization is a good idea. Experiment!
-		print OUT "if [[ ! -f pdb_files_new/$pdbcode.pdb ]] ; then\n\t/work/amw579/Rosetta/main/source/bin/relax.linuxiccrelease -database /work/amw579/Rosetta/main/database/ -relax:coord_constrain_sidechains -relax:ramp_constraints false -ex1 -ex2 -use_input_sc -flip_HNQ -no_optH false -relax:constrain_relax_to_start_coords -in:file:fullatom -ignore_zero_occupancy false -talaris2014 -linmem_ig 10 -in:file:s pdb_files_new/$pdbcode" . "_models/$file\nfi\nmv $firstpart\_0001.pdb $firstpart\_r1.pdb\n";
+		print OUT "if [[ ! -f pdb_files_new/$pdbcode.pdb ]] ; then\n\t/work/amw579/Rosetta/main/source/bin/relax.linuxiccrelease -database /work/amw579/Rosetta/main/database/ -relax:coord_constrain_sidechains -relax:ramp_constraints false -ex1 -ex2 -use_input_sc -flip_HNQ -no_optH false -relax:constrain_relax_to_start_coords -in:file:fullatom -ignore_zero_occupancy false -talaris2014 -linmem_ig 10 -in:file:s pdb_files_new/$pdbcode" . "_models/$file\nfi\n";
 		close OUT;
 	}
 }
