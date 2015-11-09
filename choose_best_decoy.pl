@@ -30,7 +30,7 @@ open LIST, "<$pdb_list";
 open REMAINING, ">remaining.txt";
 while (<LIST>) {
 	chomp;
-	if (!-e "$relax_dir/$_.pdb") {print REM "$_\n"; print "REM $_\n"; $c++;}
+	if (!-e "$relax_dir/$_.pdb") {print REMAINING "$_\n"; print "REM $_\n"; }
 }
 close REMAINING;
 
@@ -42,11 +42,11 @@ open CODES, "codes";
 open MODELLEN, ">model_lengths";
 open REMAINING, "remaining.txt";
 
-foreach $line (<REMAINING>) {
+foreach my $line (<REMAINING>) {
 	print $line;
 	chomp $line;
 	open PDB, "$pdb_dir/$line.pdb";
-	$max = 0;
+	my $max = 0;
 	while (<PDB>) {
 		if (/^MODEL/) {
 			$max++;
